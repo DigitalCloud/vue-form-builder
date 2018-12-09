@@ -13,28 +13,28 @@ import {
     FormDatePicker
 } from "@processmaker/vue-form-elements/src/components";
 
-export default [
-    {
+export default [{
         builderComponent: FormText,
         builderBinding: 'FormText',
         rendererComponent: FormText,
         rendererBinding: 'FormText',
         control: {
-            label: 'Text',
+            label: 'Text Box',
             component: 'FormText',
             'editor-component': 'FormText',
-            'editor-icon': require('./assets/icons/Label.png'),
+            'editor-icon': require('./assets/icons/font-solid.svg'),
             config: {
                 label: 'New Text',
                 fontSize: '1em',
-                fontWeight: 'normal'
+                fontWeight: 'normal',
+                textAlign: 'left'
             },
-            inspector: [
-                {
-                    type: "FormInput",
+            inspector: [{
+                    type: "FormTextArea",
                     field: "label",
                     config: {
-                        label: "Text Label",
+                        rows: 5,
+                        label: "Text Content",
                         helper: "The text to display",
                     }
                 },
@@ -44,8 +44,7 @@ export default [
                     config: {
                         label: "Font Weight",
                         helper: "The weight of the text",
-                        options: [
-                            {
+                        options: [{
                                 value: 'normal',
                                 content: 'Normal'
                             },
@@ -56,16 +55,46 @@ export default [
                         ]
                     }
                 },
-
-
+                {
+                    type: "FormInput",
+                    field: "color",
+                    config: {
+                        label: "Text Color",
+                        helper: "Accepts all HTML colors and hex codes"
+                    }
+                },
+                {
+                    type: "FormSelect",
+                    field: "textAlign",
+                    config: {
+                        label: "Text Alignment",
+                        helper: "The Alignment of the text",
+                        options: [{
+                                value: 'center',
+                                content: 'Center'
+                            },
+                            {
+                                value: 'left',
+                                content: 'Left'
+                            },
+                            {
+                                value: 'right',
+                                content: 'Right'
+                            },
+                            {
+                                value: 'justify',
+                                content: 'Justify'
+                            },
+                        ]
+                    }
+                },
                 {
                     type: "FormSelect",
                     field: "fontSize",
                     config: {
                         label: "Font Size",
                         helper: "The size of the text in em",
-                        options: [
-                            {
+                        options: [{
                                 value: '0.5em',
                                 content: '0.5'
                             },
@@ -85,7 +114,6 @@ export default [
                     }
                 },
 
-
             ]
         }
     },
@@ -98,7 +126,7 @@ export default [
             label: "Line Input",
             component: 'FormInput',
             "editor-component": "FormInput",
-            'editor-icon': require('./assets/icons/TextField.png'),
+            'editor-icon': require('./assets/icons/square-regular.svg'),
             config: {
                 label: "New Input",
                 name: '',
@@ -107,8 +135,7 @@ export default [
                 helper: null,
                 type: 'text'
             },
-            inspector: [
-                {
+            inspector: [{
                     type: "FormInput",
                     field: "name",
                     config: {
@@ -125,8 +152,7 @@ export default [
                         label: "Field Type",
                         name: 'Field Type',
                         helper: "The type for this field",
-                        options: [
-                            {
+                        options: [{
                                 value: 'text',
                                 content: 'Text'
                             },
@@ -160,8 +186,7 @@ export default [
                     field: "placeholder",
                     config: {
                         label: "Placeholder",
-                        helper:
-                            "The placeholder is what is shown in the field when no value is provided yet"
+                        helper: "The placeholder is what is shown in the field when no value is provided yet"
                     }
                 },
                 {
@@ -169,8 +194,7 @@ export default [
                     field: "helper",
                     config: {
                         label: "Help Text",
-                        helper:
-                            "Help text is meant to provide additional guidance on the field's value"
+                        helper: "Help text is meant to provide additional guidance on the field's value"
                     }
                 }
             ]
@@ -185,13 +209,12 @@ export default [
             label: "Select",
             component: 'FormSelect',
             "editor-component": "FormSelect",
-            'editor-icon': require('./assets/icons/Dropdown.png'),
+            'editor-icon': require('./assets/icons/caret-square-down-solid.svg'),
             config: {
                 label: "New Select",
                 placeholder: "",
                 validation: '',
-                options: [
-                    {
+                options: [{
                         value: 'new',
                         content: 'New Option'
                     }
@@ -199,8 +222,7 @@ export default [
                 ],
                 helper: null,
             },
-            inspector: [
-                {
+            inspector: [{
                     type: "FormInput",
                     field: "name",
                     config: {
@@ -230,8 +252,7 @@ export default [
                     field: "helper",
                     config: {
                         label: "Help Text",
-                        helper:
-                            "Help text is meant to provide additional guidance on the field's value"
+                        helper: "Help text is meant to provide additional guidance on the field's value"
                     }
                 },
                 {
@@ -254,19 +275,16 @@ export default [
             label: "Radio Group",
             component: 'FormRadioButtonGroup',
             "editor-component": "FormRadioButtonGroup",
-            'editor-icon': require('./assets/icons/RadioButton.png'),
+            'editor-icon': require('./assets/icons/list-ul-solid.svg'),
             config: {
                 label: "New Radio Button Group",
-                options: [
-                    {
-                        value: 'new',
-                        content: 'New Option'
-                    }
-                ],
+                options: [{
+                    value: 'new',
+                    content: 'New Option'
+                }],
                 helper: null,
             },
-            inspector: [
-                {
+            inspector: [{
                     type: "FormInput",
                     field: "label",
                     config: {
@@ -279,8 +297,7 @@ export default [
                     field: "helper",
                     config: {
                         label: "Help Text",
-                        helper:
-                            "Help text is meant to provide additional guidance on the field's value"
+                        helper: "Help text is meant to provide additional guidance on the field's value"
                     }
                 },
                 {
@@ -303,7 +320,7 @@ export default [
             label: "Checkbox",
             component: 'FormCheckbox',
             "editor-component": "FormCheckbox",
-            'editor-icon': require('./assets/icons/Checkbox.png'),
+            'editor-icon': require('./assets/icons/check-square-solid.svg'),
             config: {
                 label: "New Checkbox",
                 helper: null,
@@ -311,14 +328,12 @@ export default [
                 checked: false,
                 validation: '',
             },
-            inspector: [
-                {
+            inspector: [{
                     type: "FormInput",
                     field: "name",
                     config: {
                         label: "Field Name",
-                        helper:
-                            "The name of the group for the checkbox. All checkboxes which share the same name will work together."
+                        helper: "The name of the group for the checkbox. All checkboxes which share the same name will work together."
                     }
                 },
                 {
@@ -334,8 +349,7 @@ export default [
                     field: "helper",
                     config: {
                         label: "Help Text",
-                        helper:
-                            "Help text is meant to provide additional guidance on the field's value"
+                        helper: "Help text is meant to provide additional guidance on the field's value"
                     }
                 },
                 {
@@ -343,8 +357,7 @@ export default [
                     field: "checked",
                     config: {
                         label: "Initially Checked?",
-                        helper:
-                            "Should the checkbox be checked by default"
+                        helper: "Should the checkbox be checked by default"
                     }
                 },
             ]
@@ -359,15 +372,14 @@ export default [
             label: "Textarea",
             component: 'FormTextArea',
             "editor-component": "FormTextArea",
-            'editor-icon': require('./assets/icons/TextArea.png'),
+            'editor-icon': require('./assets/icons/paragraph-solid.svg'),
             config: {
                 label: "New TextArea",
                 placeholder: "",
                 helper: null,
                 rows: 2
             },
-            inspector: [
-                {
+            inspector: [{
                     type: "FormInput",
                     field: "name",
                     config: {
@@ -407,8 +419,7 @@ export default [
                     field: "placeholder",
                     config: {
                         label: "Placeholder",
-                        helper:
-                            "The placeholder is what is shown in the field when no value is provided yet"
+                        helper: "The placeholder is what is shown in the field when no value is provided yet"
                     }
                 },
                 {
@@ -416,8 +427,7 @@ export default [
                     field: "helper",
                     config: {
                         label: "Help Text",
-                        helper:
-                            "Help text is meant to provide additional guidance on the field's value"
+                        helper: "Help text is meant to provide additional guidance on the field's value"
                     }
                 }
             ]
@@ -432,14 +442,13 @@ export default [
             label: "Date Picker",
             component: 'FormDatePicker',
             "editor-component": "FormDatePicker",
-            'editor-icon': require('./assets/icons/Date.png'),
+            'editor-icon': require('./assets/icons/calendar-regular.svg'),
             config: {
                 label: "New Date Picker",
                 type: 'date',
                 name: ''
             },
-            inspector: [
-                {
+            inspector: [{
                     type: "FormInput",
                     field: "name",
                     config: {
@@ -462,8 +471,7 @@ export default [
                     field: "placeholder",
                     config: {
                         label: "Placeholder",
-                        helper:
-                            "The placeholder is what is shown in the field when no value is provided yet"
+                        helper: "The placeholder is what is shown in the field when no value is provided yet"
                     }
                 }
             ]
@@ -478,14 +486,15 @@ export default [
             label: "Submit Button",
             component: 'FormButton',
             "editor-component": "FormButton",
-            'editor-icon': require('./assets/icons/SubmitButton.png'),
+            'editor-icon': require('./assets/icons/share-square-solid.svg'),
             config: {
                 label: "New Submit",
                 variant: 'primary',
-                event: 'submit'
+                event: 'submit',
+                name: null,
+                value: null
             },
-            inspector: [
-                {
+            inspector: [{
                     type: "FormInput",
                     field: "label",
                     config: {
@@ -494,13 +503,28 @@ export default [
                     }
                 },
                 {
+                    type: "FormInput",
+                    field: "name",
+                    config: {
+                        label: "Field Name",
+                        helper: "The name of the button"
+                    }
+                },
+                {
+                    type: "FormInput",
+                    field: "value",
+                    config: {
+                        label: "Field Value",
+                        helper: "The value being submitted"
+                    }
+                },
+                {
                     type: "FormSelect",
                     field: "variant",
                     config: {
                         label: "Variant",
                         helper: "The variant determines the appearance of the button",
-                        options: [
-                            {
+                        options: [{
                                 value: 'primary',
                                 content: 'Primary'
                             },
@@ -554,7 +578,7 @@ export default [
             label: "Page Navigation",
             component: 'FormButton',
             "editor-component": "FormButton",
-            'editor-icon': require('./assets/icons/Button.png'),
+            'editor-icon': require('./assets/icons/angle-double-right-solid.svg'),
             config: {
                 label: "New Page Navigation",
                 variant: 'primary',
@@ -562,8 +586,7 @@ export default [
                 eventData: 0
 
             },
-            inspector: [
-                {
+            inspector: [{
                     type: "FormInput",
                     field: "label",
                     config: {
@@ -577,8 +600,7 @@ export default [
                     config: {
                         label: "Variant",
                         helper: "The variant determines the appearance of the button",
-                        options: [
-                            {
+                        options: [{
                                 value: 'primary',
                                 content: 'Primary'
                             },
@@ -640,17 +662,15 @@ export default [
             label: "Multi Column",
             component: 'FormMultiColumn',
             "editor-component": "MultiColumn",
-            'editor-icon': require('./assets/icons/Button.png'),
+            'editor-icon': require('./assets/icons/columns-solid.svg'),
             container: true,
             // Default items container
             items: [
                 [],
                 []
             ],
-            config: {
-            },
-            inspector: [
-                {
+            config: {},
+            inspector: [{
                     type: "FormText",
                     config: {
                         label: "MultiColumn",
@@ -669,7 +689,7 @@ export default [
             label: "Record List",
             component: 'FormRecordList',
             "editor-component": "FormText",
-            'editor-icon': require('./assets/icons/Table.png'),
+            'editor-icon': require('./assets/icons/th-list-solid.svg'),
             config: {
                 name: '',
                 label: "New Record List",
@@ -677,8 +697,7 @@ export default [
                 fields: [],
                 form: ''
             },
-            inspector: [
-                {
+            inspector: [{
                     type: "FormInput",
                     field: "name",
                     config: {
@@ -701,8 +720,7 @@ export default [
                     field: "editable",
                     config: {
                         label: "Editable?",
-                        helper:
-                            "Should records be editable/removable and can new records be added"
+                        helper: "Should records be editable/removable and can new records be added"
                     }
                 },
 
